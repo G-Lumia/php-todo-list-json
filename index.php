@@ -29,8 +29,8 @@
             <div class="p-5 bg-warning rounded">
                 <!-- verrà visualizzato un input ed un bottone d'invio -->
                 <div class="d-flex justify-content-center gap-3">
-                    <input type="text" name="toDo" id="toDo" v-model="task">
-                    <button class="btn btn-light" @click ="addTodo"> Invia </button>
+                    <input type="text" @keyup.enter="updateList" name="toDo" id="toDo" v-model="newTodo.todo">
+                    <button class="btn btn-light" @click ="updateList"> Invia </button>
                 </div>
                 <!-- viene verificato che ci siano elementi presenti all'interno del vettore todoList -->
                 <ul class="py-4" v-if ="todoList.length > 0">

@@ -15,7 +15,12 @@ createApp({
         return {
             todoList: [],
             apiUrl: 'server.php',
-            title: 'UE'
+            title: 'UE',
+            newTodo : 
+                {
+                    todo : '',
+                    completed : false
+                }
         }
     },
     methods: {
@@ -23,8 +28,14 @@ createApp({
         {
             axios.get(this.apiUrl).then((res) => {
                 this.todoList = res.data;
-                console.log(this.todoList);
             });
+        },
+        updateList()
+        {
+            const data = {
+                newTodo: this.newTodo
+            };
+            axios.post(this.apiUrl, data, {headers: { 'Content-Type': 'multipart/form-data'}}).then((res) => {});
         },
         //viene eliminata una task con un determinato indice
         deleteTodo(index)
