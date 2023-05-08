@@ -9,39 +9,22 @@
 // 2- cliccando sul testo dell'item, invertire il valore della proprietà done del todo corrispondente (se done era uguale a false, impostare true e viceversa)
 
 const {createApp} = Vue;
-createApp
-({
+
+createApp({
     data(){
-        return{
-            //il vettore delle task
-            todoList : [
-            {   
-                todo: 'Prenotare appuntamento dal dentista' , 
-                completed:false
-            },
-            {   
-                todo: 'Comprare uovo di pasqua' , 
-                completed:false
-            },
-            {   
-                todo: 'Imbiancare casa' , 
-                done:false
-            }],
-            task : ''
+        return {
+            todoList: [],
+            apiUrl: 'server.php',
+            title: 'UE'
         }
     },
     methods: {
-        //metodo utilizzato per aggiungere una task
-        addTodo()
+        readList()
         {
-            const newTodo = {
-                todo : this.task,
-                done : false
-            }
-            //viene verificato che il testo sia stato inserito e che sia minore di 100 caratteri
-            if ((this.task != '') && (this.task.length < 100))
-                this.todoList.push(newTodo)
-            this.task = ''
+            axios.get(this.apiUrl).then((res) => {
+                this.todoList = res.data;
+                console.log(this.todoList);
+            });
         },
         //viene eliminata una task con un determinato indice
         deleteTodo(index)
@@ -67,6 +50,6 @@ createApp
         }
     },
     mounted(){
-
+        this.readList();
     }
 }).mount("#app");

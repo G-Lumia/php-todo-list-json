@@ -1,0 +1,14 @@
+[
+    {   
+        "todo": "Prenotare appuntamento dal dentista" , 
+        "completed" :false
+    },
+    {   
+        "todo": "Comprare uovo di pasqua" , 
+        "completed" :false
+    },
+    {   
+        "todo": "Imbiancare casa" , 
+        "done":false
+    }
+]

@@ -7,6 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </head>
 
   <body class="bg-primary">
@@ -35,7 +38,7 @@
                     <li class="d-flex align-items-center justify-content-between py-2 gap-5" v-for="(task, index) in todoList" :key="index">
                         <!-- se la task è compiuta, sara sbarrata da una linea -->
                         <span @click = "change(index)" :class="task.done ? 'line': '' ">
-                            {{task.todo.toUpperCase()}}
+                            {{task.todo}}
                         </span>
                         <!-- accanto alla task saranno presenti due pulsanti  -->
                         <div class="d-flex gap-4">
@@ -53,10 +56,7 @@
             </div>
         </div>
     </main>
+    <script src="./myscript.js"></script>
     <!-- fine main -->
-    
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./js/myscript.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>
