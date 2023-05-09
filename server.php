@@ -9,7 +9,13 @@ if(isset($_POST['newTodo']))
 {
     $newTodo = $_POST['newTodo'];
     array_push($todos, $newTodo);
+    file_put_contents('./data.json', json_encode($todos));
+}
 
+if(isset($_GET['index']))
+{
+    $index = $_GET['index'];
+    array_splice($todos, $index, 1);
     file_put_contents('./data.json', json_encode($todos));
 }
 

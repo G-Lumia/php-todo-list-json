@@ -15,7 +15,6 @@ createApp({
         return {
             todoList: [],
             apiUrl: 'server.php',
-            title: 'UE',
             newTodo : 
                 {
                     todo : '',
@@ -41,6 +40,7 @@ createApp({
         deleteTodo(index)
         {
             this.todoList.splice(index , 1);
+            axios.delete(this.apiUrl + '?index=' + index).then((res) => {});
         },
         //una task viene contrassegnata come completata
         completeTodo(index)

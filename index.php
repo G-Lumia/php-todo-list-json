@@ -29,8 +29,10 @@
             <div class="p-5 bg-warning rounded">
                 <!-- verrà visualizzato un input ed un bottone d'invio -->
                 <div class="d-flex justify-content-center gap-3">
-                    <input type="text" @keyup.enter="updateList" name="toDo" id="toDo" v-model="newTodo.todo">
-                    <button class="btn btn-light" @click ="updateList"> Invia </button>
+                    <form action="index.php">
+                        <input type="text" @keyup.enter="updateList" name="toDo" id="toDo" v-model="newTodo.todo">
+                        <input type="submit" class="btn btn-light" @click ="updateList"></input>
+                    </form>
                 </div>
                 <!-- viene verificato che ci siano elementi presenti all'interno del vettore todoList -->
                 <ul class="py-4" v-if ="todoList.length > 0">
